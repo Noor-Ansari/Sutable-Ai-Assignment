@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import ReferralsTable from "./components/ReferralsTable/ReferralsTable";
+
+import { candidates } from "./constants/data";
+
+import "./App.css";
+import { isMobile } from "react-device-detect";
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={isMobile ? "mobile-root" : "desktop-root"}>
+      <div className="header-section">
+        <h1>Referral Status</h1>
+        <input
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search"
+        />
+      </div>
+      <div className="main-section">
+        <ReferralsTable
+          referrals={candidates.filter(({ candidateName }) =>
+            candidateName.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase())
+          )}
+        />
+      </div>
     </div>
   );
 }

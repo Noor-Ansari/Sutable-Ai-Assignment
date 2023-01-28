@@ -1,0 +1,25 @@
+.progress-bar-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical.progress-bar-root {
+  flex-direction: column;
+}
+
+.progress-bar-root .icon svg {
+  font-size: 2rem;
+}
+
+.progress-bar-root .achieved.icon {
+  color: #0ed746;
+}
+
+.progress-bar-root .unachieved.icon {
+  color: gray;
+}
+
+.progress-bar-root .unachieved.hr {
+  background-color: gray;
+}

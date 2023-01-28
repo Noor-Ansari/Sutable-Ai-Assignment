@@ -1,0 +1,83 @@
+.referrals-table-root {
+  padding: 2rem;
+}
+
+.referrals-table-root :is(.header, .row) {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 7vw;
+}
+
+.referrals-table-root .header {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  padding: 0 2.5rem;
+}
+
+.referrals-table-root .candidate-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  min-width: 12rem;
+}
+
+.referrals-table-root .candidate-info div {
+  line-height: 0.6rem;
+  text-align: left;
+}
+.referrals-table-root .candidate-info p {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.referrals-table-root .candidate-info span {
+  color: #111;
+  font-size: 0.8rem;
+}
+
+.reward-info.not-rewarded {
+  padding-left: 9vw;
+}
+
+.reward-info p {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.reward-info.not-rewarded p {
+  color: gray;
+}
+
+.reward-info.rewarded p {
+  color: #0ed746;
+}
+
+.mobile-root .referrals-table-root {
+  display: flex;
+}
+
+.mobile-root .referrals-table-root .row {
+  flex-direction: column;
+}
+
+.mobile-root .referrals-table-root :is(.header, .row) {
+  align-items: flex-start;
+  gap: 2rem;
+}
+.mobile-root .reward-info.not-rewarded {
+  padding-left: 0;
+  padding-top: 10vh;
+}
+
+.mobile-root .referrals-table-root .header {
+  order: 2;
+  flex-direction: column;
+  padding: 0;
+  gap: 7vh;
+}
+
+.mobile-root .referrals-table-root .candidate-info {
+  margin-bottom: 5rem;
+}
