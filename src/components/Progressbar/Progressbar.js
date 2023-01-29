@@ -1,4 +1,3 @@
-import Seperator from "../Separator/Separator";
 import "./Progressbar.css";
 
 const Progressbar = ({
@@ -9,16 +8,30 @@ const Progressbar = ({
   currentStepIcon,
   orientation = "horizontal",
   trail,
+  head,
 }) => {
   return (
     <div className={`${orientation} progress-bar-root`}>
+      {head && (
+        <>
+          {head}
+          <span
+            className={`${orientation} separator`}
+            style={{
+              backgroundColor: currentStep > 0 ? "#0ed746" : "gray",
+            }}
+          ></span>
+        </>
+      )}
       {Array.from(new Array(totalSteps)).map((_, idx) => (
         <>
           {idx !== 0 && (
-            <Seperator
-              orientation={orientation}
-              color={idx + 1 <= currentStep ? "#0ed746" : "gray"}
-            />
+            <span
+              className={`${orientation} separator`}
+              style={{
+                backgroundColor: idx + 1 <= currentStep ? "#0ed746" : "gray",
+              }}
+            ></span>
           )}
           <div
             className={
@@ -33,7 +46,18 @@ const Progressbar = ({
           </div>
         </>
       ))}
-      {trail}
+      {trail && (
+        <>
+          <span
+            className={`${orientation} separator`}
+            style={{
+              backgroundColor:
+                currentStep === totalSteps + 1 ? "#0ed746" : "gray",
+            }}
+          ></span>
+          {trail}
+        </>
+      )}
     </div>
   );
 };
